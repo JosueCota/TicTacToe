@@ -1,20 +1,18 @@
 import './App.css'
 import Header from './Modules/Header'
-import Container from './Modules/Container'
-import Boxes from './Modules/Boxes'
 import { useState } from 'react'
 import Turn from './Modules/Turn'
+import Content from './Modules/Content'
 
 export default function App() {
 
+  //Turn state to keep track
   const [turn, setTurn] = useState("O")
 
   return <div>
           <Header></Header>
           <Turn turn={turn}></Turn>      
-          <Container>
-            <Boxes turn={turn} setTurn={setTurn}></Boxes>
-          </Container>
+          <Content turn={turn} setTurn={setTurn}></Content>
         </div>;
   
 }

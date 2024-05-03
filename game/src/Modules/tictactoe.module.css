@@ -4,3 +4,10 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
+
+.box{
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+}
