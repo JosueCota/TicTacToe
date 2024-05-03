@@ -1,14 +1,20 @@
-import { useState } from 'react'
 import './App.css'
 import Header from './Modules/Header'
+import Container from './Modules/Container'
+import Boxes from './Modules/Boxes'
+import { useState } from 'react'
+import Turn from './Modules/Turn'
 
-function App() {
+export default function App() {
 
-  return (
-    <>
-      <Header></Header>      
-    </>
-  )
+  const [turn, setTurn] = useState("O")
+
+  return <div>
+          <Header></Header>
+          <Turn turn={turn}></Turn>      
+          <Container>
+            <Boxes turn={turn} setTurn={setTurn}></Boxes>
+          </Container>
+        </div>;
+  
 }
-
-export default App

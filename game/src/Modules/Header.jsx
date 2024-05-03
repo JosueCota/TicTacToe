@@ -7,5 +7,5 @@ export default function Header() {
         <h1>Tic-Tac-Toe</h1>
         <h1 className={style.hash}>#</h1>
 
-    </div>
+    </div>;
 }

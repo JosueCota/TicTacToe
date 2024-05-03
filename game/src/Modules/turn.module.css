@@ -1,0 +1,9 @@
+.turn {
+    background-color: black;
+    color: aliceblue;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: .4rem;
+    margin: .5rem auto;
+}
