@@ -5,7 +5,7 @@ export default function Header() {
     return <div className={style.header}>
 
         <h1 className={style.hash}>#</h1>
-        <h1>Tic-Tac-Toe</h1>
+        <h1>Square Circle X</h1>
         <h1 className={style.hash}>#</h1>
 
     </div>;

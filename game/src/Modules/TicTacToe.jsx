@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import style from "./tictactoe.module.css";
 
 export default function TicTacToe({turn, setTurn, setWin, win, boxes, setBoxes}) {
@@ -11,13 +11,25 @@ export default function TicTacToe({turn, setTurn, setWin, win, boxes, setBoxes})
 
     function checkWin() {
         //Checks for win, if happens, calls setWin
+        let check = false;
         for (const win of winCon){
             if (boxes.hasOwnProperty(win[0]) && boxes[win[0]]=== boxes[win[1]] && boxes[win[1]]=== boxes[win[2]]){
-                setWin([true, boxes[win[0]]]);
+                setWin([true, boxes[win[0]]])
+                check = true;
             }
         }
+        if (!check) {
+            checkTie();
+        }
+    }
+    
+    function checkTie(){
+        //Edge Case for when no one scores, second part of conditional takes care of second edge case where user wins on last move. 
         //Check if all boxes are filled (if it gets here, winCon already failed)
         
+        if (Object.keys(boxes).length === 9 && !win[0]) {
+            setWin([true, "Tie"]);             
+        }
     }
 
     async function handleClick(i) {
@@ -36,20 +48,7 @@ export default function TicTacToe({turn, setTurn, setWin, win, boxes, setBoxes})
                 }));
                 await setTurn("O")
             }
-        }
-
-        console.log(boxes + " " + Object.keys(boxes).length + " " + win[1])
-        
-
-        //Edge Case for when no one scores, second part of conditional takes care of second edge case where user wins on last move. 
-        if (Object.keys(boxes).length === 8 && !win[0]) {
-            setTimeout(()=> {
-                if(win[1] === undefined) {
-                setWin([true, "Tie"]); 
-            }
-            }, 500)
-            
-        }
+        }        
     }
 
     // I tried using another component, and making the boxes, or initializing a use state with 9 empty params, couldn't make it work however, so I defaulted to using them within this function
